@@ -1,0 +1,34 @@
+{
+  "name": "webtorrent-health",
+  "version": "0.0.1",
+  "description": "Get health info about a webtorrent file or magnet link",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxhotel/webtorrent-health.git"
+  },
+  "keywords": [
+    "webtorrent",
+    "torrent",
+    "health",
+    "peers",
+    "tracker",
+    "swarm",
+    "seeders",
+    "bittorrent",
+    "web"
+  ],
+  "author": "Alex <alxmorais8@msn.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alxhotel/webtorrent-health/issues"
+  },
+  "homepage": "https://github.com/alxhotel/webtorrent-health#readme",
+  "dependencies": {
+    "bittorrent-tracker": "^8.0.12",
+    "parse-torrent": "^5.8.1"
+  }
+}
