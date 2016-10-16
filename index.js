@@ -61,7 +61,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
         cb(null, {
           seeds: Math.round(sumSeeds / total),
           peers: Math.round(sumPeers / total),
-          results: aux
+          extra: aux
         })
       }
     }
