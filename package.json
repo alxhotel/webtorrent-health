@@ -30,5 +30,8 @@
   "dependencies": {
     "bittorrent-tracker": "^8.0.12",
     "parse-torrent": "^5.8.1"
+  },
+  "devDependencies": {
+    "standard": "^8.4.0"
   }
 }
