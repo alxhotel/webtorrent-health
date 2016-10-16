@@ -26,9 +26,9 @@ var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=si
 webtorrentHealth(magnet, function (err, data) {
   if (err) return console.error(err)
 
-  console.log('average number of seeders: ' + data.seeders)
+  console.log('average number of seeders: ' + data.seeds)
   console.log('average number of leechers: ' + data.peers)
-  console.log('ratio:', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'));
+  console.log('ratio:', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'))
 })
 ```
 
