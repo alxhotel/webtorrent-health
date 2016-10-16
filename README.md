@@ -28,7 +28,7 @@ webtorrentHealth(magnet, function (err, data) {
 
   console.log('average number of seeders: ' + data.seeds)
   console.log('average number of leechers: ' + data.peers)
-  console.log('ratio:', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'))
+  console.log('ratio: ', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'))
 })
 ```
 
