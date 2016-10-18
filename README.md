@@ -20,8 +20,8 @@ webtorrentHealth(torrentId [, opts], callback)
 ```
 
 ```js
-var webtorrentHealth = require('webtorrent-health');
-var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com';
+var webtorrentHealth = require('webtorrent-health')
+var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
 
 webtorrentHealth(magnet, function (err, data) {
   if (err) return console.error(err)
