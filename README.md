@@ -36,7 +36,7 @@ If you couldn't scrape any of the trackers you will not get any errors, but the 
 
 ```js
 {
-  seeders: 0,
+  seeds: 0,
   peers: 0,
   extra: [...]
 }
