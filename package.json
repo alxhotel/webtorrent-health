@@ -1,6 +1,6 @@
 {
   "name": "webtorrent-health",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Get health info about a webtorrent file or magnet link",
   "main": "index.js",
   "scripts": {
