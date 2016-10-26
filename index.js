@@ -9,7 +9,7 @@ var TIMEOUT = 1000
  * Get health info about a webtorrent file or magnet link.
  *
  * @param {Object} torrentId                     torrentId object
- * @param {Array.<string>} opts.trackers         trackers list or string
+ * @param {Array<string>} opts.trackers         trackers list
  * @param {number} opts.timeout                  timeout for each request to tracker
  * @param {function} cb
  */
