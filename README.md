@@ -32,6 +32,19 @@ webtorrentHealth(magnet, function (err, data) {
 })
 ```
 
+You can also use Promises/A+:
+
+```js
+var webtorrentHealth = require('webtorrent-health')
+var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
+
+webtorrentHealth(magnet).then(function (data) {
+  console.log('average number of seeders: ' + data.seeds)
+  console.log('average number of leechers: ' + data.peers)
+  console.log('ratio: ', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'))
+}).catch(console.error.bind(console));
+```
+
 If you couldn't scrape any of the trackers you will not get any errors, but the returned data will look like this:
 
 ```js
