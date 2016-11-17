@@ -32,6 +32,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
     } else if (typeof opts === 'object') {
       // Use default values
       if (!opts.trackers || !Array.isArray(opts.trackers)) opts.trackers = []
+      if (!opts.blacklist || !Array.isArray(opts.blacklist)) opts.blacklist = []
       if (!opts.timeout || typeof opts.timeout !== 'number' || opts.timeout < 0) opts.timeout = TIMEOUT
     }
 
@@ -45,7 +46,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
 
     // Merge torrent trackers with custom ones into 'trackers' array
     parsedTorrent.announce.forEach(function (tracker) {
-      if (opts.trackers.indexOf(tracker) === -1) opts.trackers.push(tracker)
+      if (opts.trackers.indexOf(tracker) === -1 && opts.blacklist.indexOf(tracker) === -1) opts.trackers.push(tracker)
     })
 
     if (opts.trackers.length === 0) return callback(new Error('No trackers found'))
