@@ -93,6 +93,21 @@ webtorrentHealth(torrentId, {
 })
 ```
 
+- `opts.blacklist`: don't scrape some trackers.
+  - Type: an Array of Strings (each string can be a regex)
+  - Example:
+
+```js
+webtorrentHealth(torrentId, {
+    trackers: [
+        'wss://tracker.openwebtorrent.com',
+        'openbittorent'    // will blacklist any tracker containing that string in its URI
+    ]
+}, function (err, data) {
+  // Do something
+})
+```
+
 - `opts.timeout`: timeout in milliseconds for each request to scarpe the tracker. Default is `1000`.
   - Type: number
   - Example:
