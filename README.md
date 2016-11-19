@@ -99,9 +99,8 @@ webtorrentHealth(torrentId, {
 
 ```js
 webtorrentHealth(torrentId, {
-    trackers: [
-        'wss://tracker.openwebtorrent.com',
-        'openbittorent'    // will blacklist any tracker containing that string in its URI
+    blacklist: [
+        'openbittorrent'    // will blacklist any tracker containing that string in its URI
     ]
 }, function (err, data) {
   // Do something
