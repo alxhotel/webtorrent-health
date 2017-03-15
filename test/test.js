@@ -13,4 +13,4 @@ webtorrentHealth(magnet, /* { trackers: ['wss://tracker.openwebtorrent.com'], ti
   if (err) return console.error(err)
 
   return console.log(result)
-}).catch(console.error.bind(console))
+})
