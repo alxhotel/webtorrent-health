@@ -9,8 +9,8 @@ var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=si
 // var fs = require('fs')
 // var torrentId = fs.readFileSync(__dirname + '/sintel.torrent')
 
-webtorrentHealth(magnet, /*{ trackers: ['wss://tracker.openwebtorrent.com'], timeout: 1500 },*/ function (err, result) {
+webtorrentHealth(magnet, /* { trackers: ['wss://tracker.openwebtorrent.com'], timeout: 1500 }, */ function (err, result) {
   if (err) return console.error(err)
 
   return console.log(result)
-})
+}).catch(console.error.bind(console))

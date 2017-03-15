@@ -42,7 +42,7 @@ webtorrentHealth(magnet).then(function (data) {
   console.log('average number of seeders: ' + data.seeds)
   console.log('average number of leechers: ' + data.peers)
   console.log('ratio: ', +(Math.round((data.peers > 0 ? data.seeds / data.peers : data.seeds) +'e+2') + 'e-2'))
-}).catch(console.error.bind(console));
+}).catch(console.error.bind(console))
 ```
 
 If you couldn't scrape any of the trackers you will not get any errors, but the returned data will look like this:

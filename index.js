@@ -9,27 +9,28 @@ var TIMEOUT = 1000
  *
  * Get health info about a webtorrent file or magnet link.
  *
- * @param {Object} torrentId                     torrentId object
+ * @param {Object} torrentId                    torrentId object
  * @param {Array<string>} opts.trackers         trackers list
- * @param {number} opts.timeout                  timeout for each request to tracker
+ * @param {Array<string>} opts.blacklist        trackers blacklist
+ * @param {number} opts.timeout                 timeout for each request to tracker
  * @param {function} cb
  */
 var WebtorrentHealth = function (torrentId, opts, cb) {
   return new Promise(function (resolve, reject) {
-    var callback = cb || opts;
+    var callback = cb || opts
     if (!callback || typeof callback !== 'function') {
       callback = function (err, data) {
-        if (err) return reject(err);
-        return resolve(data);
+        if (err) return reject(err)
+        return resolve(data)
       }
     }
 
     if (!torrentId) return callback(new Error('A `torrentId` is required'))
 
     if (typeof opts === 'function' || !opts) {
-     // 'opts' can be 'cb'
+      // 'opts' can be 'cb'
       cb = opts
-      opts = { trackers: [] }
+      opts = { trackers: [], blacklist: [] }
     } else if (typeof opts === 'object') {
       // Use default values
       if (!opts.trackers || !Array.isArray(opts.trackers)) opts.trackers = []
@@ -48,9 +49,9 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
     // Merge torrent trackers with custom ones into 'trackers' array
     parsedTorrent.announce.forEach(function (tracker) {
       if (!opts.blacklist.some(function (regex) {
-        if (util.isString(regex)) regex = new RegExp(regex);
-        return regex.test(tracker);
-      })) if (opts.trackers.indexOf(tracker) === -1) opts.trackers.push(tracker);
+        if (util.isString(regex)) regex = new RegExp(regex)
+        return regex.test(tracker)
+      })) if (opts.trackers.indexOf(tracker) === -1) opts.trackers.push(tracker)
     })
 
     if (opts.trackers.length === 0) return callback(new Error('No trackers found'))
