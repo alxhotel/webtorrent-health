@@ -1,8 +1,9 @@
 # webtorrent-health
 
-[![Build Status][webtorrent-health-ti]][webtorrent-health-tu]
 [![NPM Version][webtorrent-health-ni]][webtorrent-health-nu]
+[![Build Status][webtorrent-health-ti]][webtorrent-health-tu]
 [![Dependency Status][webtorrent-health-di]][webtorrent-health-du]
+[![Standard - Javascript Style Guide][standard-image]][standard-url]
 
 Get health info about a webtorrent file or magnet link
 
@@ -119,8 +120,6 @@ webtorrentHealth(torrentId, {
 })
 ```
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 ## License
 
 MIT. Copyright (c) [Alex](http://github.com/alxhotel)
@@ -131,3 +130,5 @@ MIT. Copyright (c) [Alex](http://github.com/alxhotel)
 [webtorrent-health-nu]: https://npmjs.org/package/webtorrent-health
 [webtorrent-health-di]: https://david-dm.org/alxhotel/webtorrent-health.svg
 [webtorrent-health-du]: https://david-dm.org/alxhotel/webtorrent-health
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
