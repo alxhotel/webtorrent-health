@@ -1,6 +1,5 @@
 var ClientTracker = require('bittorrent-tracker')
 var parseTorrent = require('parse-torrent')
-var util = require('util')
 
 var TIMEOUT = 1000
 
@@ -49,7 +48,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
     // Merge torrent trackers with custom ones into 'trackers' array
     parsedTorrent.announce.forEach(function (tracker) {
       if (!opts.blacklist.some(function (regex) {
-        if (util.isString(regex)) regex = new RegExp(regex)
+        if (typeof regex === 'string') regex = new RegExp(regex)
         return regex.test(tracker)
       })) if (opts.trackers.indexOf(tracker) === -1) opts.trackers.push(tracker)
     })
