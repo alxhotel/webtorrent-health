@@ -1,7 +1,5 @@
 # webtorrent-health
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/alxhotel/webtorrent-health.svg)](https://greenkeeper.io/)
-
 [![NPM Version][webtorrent-health-ni]][webtorrent-health-nu]
 [![Build Status][webtorrent-health-ti]][webtorrent-health-tu]
 [![Dependency Status][webtorrent-health-di]][webtorrent-health-du]
