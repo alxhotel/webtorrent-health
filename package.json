@@ -32,6 +32,6 @@
     "parse-torrent": "^7.0.0"
   },
   "devDependencies": {
-    "standard": "^14.0.0"
+    "standard": "^15.0.0"
   }
 }
