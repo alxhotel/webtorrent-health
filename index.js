@@ -1,7 +1,7 @@
-var ClientTracker = require('bittorrent-tracker')
-var parseTorrent = require('parse-torrent')
+const ClientTracker = require('bittorrent-tracker')
+const parseTorrent = require('parse-torrent')
 
-var TIMEOUT = 1000
+const TIMEOUT = 1000
 
 /**
  * Webtorrent health checker.
@@ -14,9 +14,9 @@ var TIMEOUT = 1000
  * @param {number} opts.timeout                 timeout for each request to tracker
  * @param {function} cb
  */
-var WebtorrentHealth = function (torrentId, opts, cb) {
+const WebtorrentHealth = function (torrentId, opts, cb) {
   return new Promise(function (resolve, reject) {
-    var callback = cb || opts
+    let callback = cb || opts
     if (!callback || typeof callback !== 'function') {
       callback = function (err, data) {
         if (err) return reject(err)
@@ -38,7 +38,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
     }
 
     // Get info
-    var parsedTorrent
+    let parsedTorrent
     try {
       parsedTorrent = parseTorrent(torrentId)
     } catch (err) {}
@@ -55,14 +55,14 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
 
     if (opts.trackers.length === 0) return callback(new Error('No trackers found'))
 
-    var len = opts.trackers.length
-    var sumSeeds = 0
-    var sumPeers = 0
-    var total = 0
-    var aux = []
+    let len = opts.trackers.length
+    let sumSeeds = 0
+    let sumPeers = 0
+    let total = 0
+    const aux = []
     opts.trackers.forEach(function (tracker) {
       // Send data function
-      var sendData = function () {
+      const sendData = function () {
         if (len === 0) {
           // Dont divide by zero
           if (total === 0) total = 1
@@ -77,9 +77,9 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
       }
 
       // Setup our own timeout
-      var canceled = false
-      var ms = opts.timeout || TIMEOUT
-      var timeout = setTimeout(function () {
+      let canceled = false
+      const ms = opts.timeout || TIMEOUT
+      let timeout = setTimeout(function () {
         canceled = true
         timeout = null
         len -= 1
@@ -92,7 +92,7 @@ var WebtorrentHealth = function (torrentId, opts, cb) {
         sendData()
       }, ms)
 
-      var startTime = Date.now()
+      const startTime = Date.now()
       // Scrape tracker
       ClientTracker.scrape({ announce: tracker, infoHash: parsedTorrent.infoHash, wrtc: true }, function (err, result) {
         if (canceled) return
