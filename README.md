@@ -1,7 +1,7 @@
 # webtorrent-health
 
 [![NPM Version][webtorrent-health-ni]][webtorrent-health-nu]
-[![Build Status][webtorrent-health-ti]][webtorrent-health-tu]
+[![Build Status][webtorrent-health-bi]][webtorrent-health-bu]
 [![Dependency Status][webtorrent-health-di]][webtorrent-health-du]
 [![Standard - Javascript Style Guide][standard-image]][standard-url]
 
@@ -124,11 +124,11 @@ webtorrentHealth(torrentId, {
 
 MIT. Copyright (c) [Alex](http://github.com/alxhotel)
 
-[webtorrent-health-ti]: https://img.shields.io/travis/com/alxhotel/webtorrent-health/master.svg
-[webtorrent-health-tu]: https://travis-ci.com/alxhotel/webtorrent-health
 [webtorrent-health-ni]: https://img.shields.io/npm/v/webtorrent-health.svg
 [webtorrent-health-nu]: https://npmjs.org/package/webtorrent-health
-[webtorrent-health-di]: https://david-dm.org/alxhotel/webtorrent-health/status.svg
-[webtorrent-health-du]: https://david-dm.org/alxhotel/webtorrent-health
+[webtorrent-health-bi]: https://img.shields.io/github/workflow/status/alxhotel/webtorrent-health/ci/master
+[webtorrent-health-bu]: https://github.com/alxhotel/webtorrent-health/actions
+[webtorrent-health-di]: https://img.shields.io/librariesio/release/npm/webtorrent-health
+[webtorrent-health-du]: https://libraries.io/npm/webtorrent-health
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
