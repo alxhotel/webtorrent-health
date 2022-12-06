@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/alxhotel/webtorrent-health#readme",
   "dependencies": {
-    "bittorrent-tracker": "^9.19.0",
+    "bittorrent-tracker": "^10.0.0",
     "parse-torrent": "^9.1.5"
   },
   "devDependencies": {
