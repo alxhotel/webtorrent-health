@@ -29,7 +29,7 @@
   "homepage": "https://github.com/alxhotel/webtorrent-health#readme",
   "dependencies": {
     "bittorrent-tracker": "^10.0.0",
-    "parse-torrent": "^10.0.1"
+    "parse-torrent": "^11.0.2"
   },
   "devDependencies": {
     "standard": "^17.0.0"
