@@ -126,7 +126,7 @@ MIT. Copyright (c) [Alex](http://github.com/alxhotel)
 
 [webtorrent-health-ni]: https://img.shields.io/npm/v/webtorrent-health.svg
 [webtorrent-health-nu]: https://npmjs.org/package/webtorrent-health
-[webtorrent-health-bi]: https://img.shields.io/github/workflow/status/alxhotel/webtorrent-health/ci/master
+[webtorrent-health-bi]: https://img.shields.io/github/actions/workflow/status/alxhotel/webtorrent-health/ci.yml?branch=master
 [webtorrent-health-bu]: https://github.com/alxhotel/webtorrent-health/actions
 [webtorrent-health-di]: https://img.shields.io/librariesio/release/npm/webtorrent-health
 [webtorrent-health-du]: https://libraries.io/npm/webtorrent-health
