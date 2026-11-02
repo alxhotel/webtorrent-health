@@ -14,6 +14,8 @@ npm install webtorrent-health
 
 ## Usage
 
+This package is an ES module (`import`), like the WebTorrent packages it depends on. On Node.js 20.19+ / 22.12+ you can also load it from CommonJS with `require('webtorrent-health')`.
+
 The param `torrentId` can be a webtorrent file or magnet link, for more info check out [parse-torrent](https://github.com/feross/parse-torrent).
 
 ```js
@@ -21,8 +23,9 @@ webtorrentHealth(torrentId [, opts], callback)
 ```
 
 ```js
-var webtorrentHealth = require('webtorrent-health')
-var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
+import webtorrentHealth from 'webtorrent-health'
+
+const magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
 
 webtorrentHealth(magnet, function (err, data) {
   if (err) return console.error(err)
@@ -36,8 +39,9 @@ webtorrentHealth(magnet, function (err, data) {
 You can also use Promises/A+:
 
 ```js
-var webtorrentHealth = require('webtorrent-health')
-var magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
+import webtorrentHealth from 'webtorrent-health'
+
+const magnet = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com'
 
 webtorrentHealth(magnet).then(function (data) {
   console.log('average number of seeders: ' + data.seeds)

@@ -1,22 +1,7 @@
-const TIMEOUT = 1000
+import ClientTracker from 'bittorrent-tracker'
+import parseTorrent from 'parse-torrent'
 
-// `bittorrent-tracker` (>=10) and `parse-torrent` (>=10) are ESM-only, so they
-// cannot be `require`d. Load them lazily with dynamic `import()` instead.
-let depsPromise = null
-const loadDeps = function () {
-  if (!depsPromise) {
-    depsPromise = Promise.all([
-      import('bittorrent-tracker'),
-      import('parse-torrent')
-    ]).then(function ([tracker, parse]) {
-      return { ClientTracker: tracker.default, parseTorrent: parse.default }
-    }).catch(function (err) {
-      depsPromise = null
-      throw err
-    })
-  }
-  return depsPromise
-}
+const TIMEOUT = 1000
 
 /**
  * Webtorrent health checker.
@@ -52,19 +37,13 @@ const WebtorrentHealth = function (torrentId, opts, cb) {
       if (!opts.timeout || typeof opts.timeout !== 'number' || opts.timeout < 0) opts.timeout = TIMEOUT
     }
 
-    loadDeps().then(function ({ ClientTracker, parseTorrent }) {
-      // Get info (`parseTorrent` is async since parse-torrent v10)
-      return Promise.resolve()
-        .then(function () { return parseTorrent(torrentId) })
-        .catch(function () { return null })
-        .then(function (parsedTorrent) {
-          return { ClientTracker, parsedTorrent }
-        })
-    }).then(function ({ ClientTracker, parsedTorrent }) {
-      scrapeAll(ClientTracker, parsedTorrent)
-    }, callback)
+    // Get info (`parseTorrent` is async since parse-torrent v10)
+    Promise.resolve()
+      .then(function () { return parseTorrent(torrentId) })
+      .catch(function () { return null })
+      .then(scrapeAll)
 
-    function scrapeAll (ClientTracker, parsedTorrent) {
+    function scrapeAll (parsedTorrent) {
       if (!parsedTorrent || !parsedTorrent.infoHash) return callback(new Error('Invalid torrent file or magnet link'))
 
       // Merge torrent trackers with custom ones into 'trackers' array
@@ -83,10 +62,10 @@ const WebtorrentHealth = function (torrentId, opts, cb) {
       let total = 0
       const aux = []
       opts.trackers.forEach(function (tracker) {
-      // Send data function
+        // Send data function
         const sendData = function () {
           if (len === 0) {
-          // Dont divide by zero
+            // Dont divide by zero
             if (total === 0) total = 1
 
             // Return data
@@ -159,4 +138,8 @@ const WebtorrentHealth = function (torrentId, opts, cb) {
   })
 }
 
-module.exports = WebtorrentHealth
+export default WebtorrentHealth
+
+// Lets CommonJS users (Node >= 20.19 / 22.12) get the function directly from
+// `require('webtorrent-health')` instead of `{ default: WebtorrentHealth }`.
+export { WebtorrentHealth as 'module.exports' }
