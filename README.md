@@ -129,9 +129,9 @@ webtorrentHealth(torrentId, {
 MIT. Copyright (c) [Alex](http://github.com/alxhotel)
 
 [webtorrent-health-ni]: https://img.shields.io/npm/v/webtorrent-health.svg
-[webtorrent-health-nu]: https://npmjs.org/package/webtorrent-health
+[webtorrent-health-nu]: https://www.npmjs.com/package/webtorrent-health
 [webtorrent-health-bi]: https://img.shields.io/github/actions/workflow/status/alxhotel/webtorrent-health/ci.yml?branch=master
-[webtorrent-health-bu]: https://github.com/alxhotel/webtorrent-health/actions
+[webtorrent-health-bu]: https://github.com/alxhotel/webtorrent-health/actions/workflows/ci.yml
 [webtorrent-health-di]: https://img.shields.io/librariesio/release/npm/webtorrent-health
 [webtorrent-health-du]: https://libraries.io/npm/webtorrent-health
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
